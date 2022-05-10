@@ -1,12 +1,15 @@
 # Imports and inits
 import pygame
 pygame.init()
+import sys
+from tkinter import *
+from tkinter import messagebox
+Tk().wm_withdraw()
 
+clock = pygame.time.Clock()
 # Window setup
 win = pygame.display.set_mode((750, 500))
 pygame.display.set_caption("B'Pong")
-background_image1 = pygame.image.load('fancy-court.png')
-background_image2 = pygame.image.load('court 2.jpeg')
 
 # Colors
 white = (255, 255, 255)
@@ -18,49 +21,19 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10, 75])
-        self.image.fill(white)
+        self.image = pygame.image.load('paddle_glow.png')
         self.rect = self.image.get_rect()
         self.points = 0
 
 class Ball(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('ball glow.png')
+        self.image = pygame.image.load('ball_glow.png')
         self.rect = self.image.get_rect()
         self.speed = 15
         self.dx = 1
         self.dy = 1
 
-class Obstacle(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface([20, 30])
-        self.image.fill(white)
-        self.rect = self.image.get_rect()
-        self.rect.center = (750/2, 500)
-        self.speed = 5
-    
-    def bergerak(self):
-        while self.rect.y > 0 :
-            self.rect.y -= self.speed
-
-    def update():
-        pass
-
-"""class Skill(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.speed = 
-    
-    def slower():
-        pass
-
-    def faster():
-        pass
-
-    def bonus_poin():
-        pass
-"""
 
 # Sprite Creation
 
@@ -69,60 +42,60 @@ player2 = Player()
 
 player_speed = 15
 
-player1.rect.x = 25
+player1.rect.x = 0
 player1.rect.y = 225
 
-player2.rect.x = 715
+player2.rect.x = 710
 player2.rect.y = 225
 
 pong = Ball()
 pong.rect.x = 375
 pong.rect.y = 250
 
-obstacle = Obstacle()
-
 # Group of Sprites
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player1, player2, pong)
 
-# Fungsi tampilan screen
+
+bg_image1 = pygame.image.load('fancy_court.png')
+bg_image2 = pygame.image.load('court_2.jpeg')
+# Screen update function
 def redraw():
-    # Draw background
+
     win.fill(black)
-    win.blit(background_image1, (0, 0))
+    win.blit(bg_image1, (0, 0))
     pygame.display.update()
 
-    # Font judul
-    font = pygame.font.SysFont('Times', 30)
-    text = font.render('PONG GAME', False, white)
+    # Title font
+    font = pygame.font.SysFont('Comic Sans MS', 30)
+    text = font.render('PONG', False, white)
     textRect = text.get_rect()
     textRect.center = (750 // 2, 25)
     win.blit(text, textRect)
 
-    # Score Player 1 
+    # Player 1 Score
     p1_score = font.render(str(player1.points), False, white)
     p1Rect = p1_score.get_rect()
     p1Rect.center = (50, 50)
     win.blit(p1_score, p1Rect)
 
-    # Score Player 2 
+    # Player 2 Score
     p2_score = font.render(str(player2.points), False, white)
     p2Rect = p2_score.get_rect()
     p2Rect.center = (700, 50)
     win.blit(p2_score, p2Rect)
 
-    # Update Sprites
+    # Updates all Sprites
     all_sprites.draw(win)
 
-    # Draw updates
+    # Draws updates
     pygame.display.update()
 
 run = True
-
 # Main Loop
-while run:
-
-    pygame.time.delay(100)
+while run :
+    clock.tick(60)
+    pygame.time.delay(50)
 
     # Quit Event
     for event in pygame.event.get():
@@ -145,7 +118,7 @@ while run:
     pong.rect.y += pong.speed * pong.dy
 
     # Wall and Player Bounces
-    if pong.rect.y > 490:
+    if pong.rect.y > 450:
         pong.dy = -1
 
     if pong.rect.y < 1:
@@ -167,11 +140,26 @@ while run:
     if player2.rect.colliderect(pong.rect):
         pong.dx = -1
 
-    if player1.points == 10:
-        player2.kill()
-
+    # Shortcut to End the Game
+    if key[pygame.K_o]:     # 'o' stands for over
+        run = False
+    
+    # Shortcut to End the Game
+    if player1.points ==  10:
+        run = False
+        messagebox.showinfo('Game Over',"Congratulations!\nPlayer 1 Win!")
     if player2.points == 10:
-        player1.kill()
+        run = False
+        messagebox.showinfo('Game Over',"Congratulations!\nPlayer 2 Win!")
+    
+    # shortcut to make player 1 win
+    if key[pygame.K_1]:
+        player1.points = 10
+
+    # shortcut to make player 2 win
+    if key[pygame.K_2]:
+        player2.points = 10
+
     # Runs redraw function above
     redraw()
 
