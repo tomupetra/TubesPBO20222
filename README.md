@@ -19,14 +19,8 @@ Aturan Permainan:
 1. Mendapatkan point 10 untuk memenangkan pertandingan
 2. Mengunakan keyboard sebagai kontrol permainan
 
-## 👽: Dependensi paket (library) yang dibutuhkan untuk menjalankan aplikasi
-
-
 ## 👽: Cara menjalankan aplikasi (cara bermain)
 
-## 👽: UML class diagram proyek
-![UML Class Diagram (4)](https://user-images.githubusercontent.com/77344442/170223193-b10cf73f-9bbf-447d-9ff9-4483f58d6b69.png)
 
 
 ## 👽: Cara menjalankan kontainer
-## 👽: Kontributor pengembangan aplikasi
