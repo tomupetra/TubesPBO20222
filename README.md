@@ -19,8 +19,12 @@ Aturan Permainan:
 1. Mendapatkan point 10 untuk memenangkan pertandingan
 2. Mengunakan keyboard sebagai kontrol permainan
 
+## 👽: Dependensi paket (library) yang dibutuhkan untuk menjalankan aplikasi
+
+
 ## 👽: Cara menjalankan aplikasi (cara bermain)
 
 
 
 ## 👽: Cara menjalankan kontainer
+## 👽: Kontributor pengembangan aplikasi
