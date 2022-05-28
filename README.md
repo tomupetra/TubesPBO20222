@@ -40,3 +40,5 @@ xhost +
 ```bash
 docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/snd nama-image
   ```
+## 📖: Video Demo Kontainer  
+[![Text](https://img.youtube.com/vi/u1NzZxhdQX8/0.jpg)](https://www.youtube.com/watch?v=u1NzZxhdQX8)
