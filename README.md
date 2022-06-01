@@ -1,6 +1,6 @@
 # TubesPBO2022
 
-## 🔖 Anggota Kelompok
+## 🔖 Kontributor Pengembangan Aplikasi
 1. Dwi Ananda Rizky (120140027)
 2. Shah Raja Abdullah Al Turtusi (120140064)
 3. Michelle Ayu Nastiti (120140072)
