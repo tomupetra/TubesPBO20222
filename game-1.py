@@ -29,14 +29,14 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10, 75])
-        self.image = pygame.image.load('paddle_glow.png')
+        self.image = pygame.image.load('paddle glow.png')
         self.rect = self.image.get_rect()
         self.points = 0
 
 class Ball(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('ball_glow.png')
+        self.image = pygame.image.load('ball glow.png')
         self.rect = self.image.get_rect()
         self.speed = 15
         self.dx = 1
@@ -65,8 +65,8 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player1, player2, pong)
 
 
-bg_image1 = pygame.image.load('fancy_court.png')
-bg_image2 = pygame.image.load('court_2.jpeg')
+bg_image1 = pygame.image.load('fancy-court.png')
+bg_image2 = pygame.image.load('court 2.jpeg')
 # Screen update function
 def redraw():
 
