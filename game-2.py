@@ -71,7 +71,7 @@ bg_image2 = pygame.image.load('court 2.jpeg')
 def redraw():
 
     win.fill(black)
-    win.blit(bg_image1, (0, 0))
+    win.blit(bg_image2, (0, 0))
     pygame.display.update()
 
     # Title font
