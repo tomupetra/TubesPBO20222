@@ -36,10 +36,10 @@ def main_menu():
                 if arena1.checkForInput(mouse_pos):
                     import pong_game
                     pong_game.run = True
-                elif arena2.checkForInput(mouse_pos):
+                if arena2.checkForInput(mouse_pos):
                     import pong_pong
                     pong_pong.run = True
-                elif petunjuk.checkForInput(mouse_pos):
+                if petunjuk.checkForInput(mouse_pos):
                     func_petunjuk()
 
         pygame.display.update()
