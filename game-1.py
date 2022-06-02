@@ -65,13 +65,12 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player1, player2, pong)
 
 
-bg_image1 = pygame.image.load('fancy-court.png')
-bg_image2 = pygame.image.load('court 2.jpeg')
+bg_image = pygame.image.load('fancy-court.png')
 # Screen update function
 def redraw():
 
     win.fill(black)
-    win.blit(bg_image1, (0, 0))
+    win.blit(bg_image, (0, 0))
     pygame.display.update()
 
     # Title font
