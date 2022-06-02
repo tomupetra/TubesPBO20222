@@ -22,6 +22,7 @@ Aturan Permainan:
 
 ## 📖: Cara menjalankan aplikasi (cara bermain)
 
+## 📖: Cara menjalankan aplikasi (cara bermain)
 
 
 ## 📖: Cara menjalankan kontainer
