@@ -1,112 +1,47 @@
-from tkinter import * 
-from PIL import ImageTk, Image
+import pygame, sys
+from button import Button
 
-def start_main_page():
-    def start_game(args):
-        main_window.destroy()
-        if args == 1:
-            import pong_pong
-            pong_pong.main()
-        elif args == 2:
-            import pong_game
-            pong_game.main()
-        """elif args == 3:
-            from Options import Petunjuk
-            Petunjuk.main()"""
-       
+pygame.init()
 
-    def option():
-        lab_img1 = Button(
-            main_window,
-            text="Select",
-            bg='#e6fff5',
-            border=0,
-            justify='center',
-            font=("Arial", 12)
-        )
+win = pygame.display.set_mode((700, 500))
+pygame.display.set_caption("B'Pong")
 
-        sel_btn1 = Button(
-            text="Arena 1",
-            width=18,
-            borderwidth=8,
-            font=("", 18),
-            fg="#000000",
-            bg="#cef3da",
-            cursor="hand2",
-            command=lambda: start_game(1),
-        )
+BG = pygame.image.load("background-awal.png")
 
-        sel_btn2 = Button(
-            text="Arena 2",
-            width=18,
-            borderwidth=8,
-            font=("", 18),
-            fg="#000000",
-            bg="#dacef3",
-            cursor="hand2",
-            command=lambda: start_game(2),
-        )
+def func_petunjuk():
+    while True:
+        OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
+        img_petunjuk = pygame.image.load("foto-petunjuk.png")
+        win.blit(img_petunjuk, (0, 0))
+        pygame.display.update()
 
-        sel_btn3 = Button(
-            text="Petunjuk Permainan",
-            width=18,
-            borderwidth=8,
-            font=("", 18),
-            fg="#000000",
-            bg="#f3dace",
-            cursor="hand2",
-            command=lambda: start_game(3),
-        )
+def main_menu():
+    while True:
+        win.blit(BG, (0, 0))
 
-        lab_img1.grid(row=0, column=0, padx=20)
-        sel_btn1.grid(row=0, column=4, pady=(10, 0), padx=50, )
-        sel_btn2.grid(row=1, column=4, pady=(10, 0), padx=50, )
-        sel_btn3.grid(row=2, column=4, pady=(10, 0), padx=50, )
-       
+        mouse_pos = pygame.mouse.get_pos()
 
-    def show_option():
-        start_btn.destroy()
+        arena1 = Button(image=pygame.image.load("arena 1.png"), pos=(700//2, 270))
+        arena2 = Button(image=pygame.image.load("arena 2.png"), pos=(700//2, 330))
+        petunjuk = Button(image=pygame.image.load("petunjuk.png"), pos=(700//2, 390))
 
-        lab_img.destroy()
-        option()
+        for button in [arena1, arena2, petunjuk]:
+            button.update(win)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if arena1.checkForInput(mouse_pos):
+                    import pong_game
+                    pong_game.run = True
+                if arena2.checkForInput(mouse_pos):
+                    import pong_pong
+                    pong_pong.run = True
+                elif petunjuk.checkForInput(mouse_pos):
+                    func_petunjuk()
 
-    main_window = Tk()
-    background_image = ImageTk.PhotoImage(Image.open("backgorund-awal.png"))
-    img1 = ImageTk.PhotoImage(Image.open("fancy-court.png"))
-    main_window.geometry("700x500")
-    main_window.resizable(0, 0)
-    main_window.title("B'Pong")
-    #main_window.configure(background=img1)
-    
-    """frame = Frame(main_window, width=600, height=400)
-    frame.pack()
-    frame.place(anchor='center', relx=0.5, rely=0.5)"""
-    
-    
+        pygame.display.update()
 
-    start_btn = Button(
-        main_window,
-        text="Start",
-        width=18,
-        borderwidth=8,
-        fg="#000000",
-        bg="#99ffd6",
-        font=("", 13),
-        cursor="hand2",
-        command=show_option,
-    )
-    start_btn.pack(pady=(0, 0))
-
-    lab_img = Label(
-        main_window,
-        image = background_image,
-        text="B'Pong",
-        bg='#e6fff5',
-        font=("Courier", 28)
-    )
-    lab_img.pack(pady=(0, 0))
-
-    main_window.mainloop()
-
-
-start_main_page()
+main_menu()
