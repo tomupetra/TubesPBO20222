@@ -34,11 +34,11 @@ def main_menu():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if arena1.checkForInput(mouse_pos):
-                    import pong_game
-                    pong_game.run = True
+                    import game-1
+                    game-1.run = True
                 if arena2.checkForInput(mouse_pos):
-                    import pong_pong
-                    pong_pong.run = True
+                    import game-2
+                    game-2.run = True
                 if petunjuk.checkForInput(mouse_pos):
                     func_petunjuk()
 
