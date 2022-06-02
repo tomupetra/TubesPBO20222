@@ -65,7 +65,6 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player1, player2, pong)
 
 
-bg_image1 = pygame.image.load('fancy-court.png')
 bg_image2 = pygame.image.load('court 2.jpeg')
 # Screen update function
 def redraw():
