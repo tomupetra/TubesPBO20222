@@ -21,6 +21,9 @@ Aturan Permainan:
 
 
 ## 📖: Cara menjalankan aplikasi (cara bermain)
+- Open File mmenu.py (pastikan telah menginstall pygame pada aplikasi untuk menjalankan program)
+- Kemudian setelahnya run program untuk dapat memainkan permainan
+- Terdapat beberapa shortcut dalam permainan. Tombol Shortcut 1 untuk langsung memenangkan permainan dan Tombol Shortcut 2 dan player akan langsung kalah.
 
 ## 📖: UML Diagram
 ![UML Class Diagram-Page-2](https://user-images.githubusercontent.com/103347734/171573095-126bb6b5-5b65-45dd-8ed4-a9e4f0c483da.jpg)
