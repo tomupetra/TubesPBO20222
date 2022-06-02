@@ -18,7 +18,7 @@ Aturan Permainan:
 2. Mengunakan keyboard sebagai pengendali permainan, player 1 menggunakan keyboard W dan S untuk gerak naik turun dan untuk player 2 menggunakan panah atas dan panah bawah.
 
 ## 📚: Dependensi paket (library) yang dibutuhkan untuk menjalankan aplikasi
-
+Library python adalah kumpulan modul terkait berisi kumpulan kode yang dapat digunakan berulang kali dalam program yang berbeda. Adanya library membuat pemrograman python menjadi lebih sederhana dan nyaman bagi programmer karena tidak perlu menulis kode yang sama berulang kali untuk program yang berbeda. Pygame adalah modul cross-platform dari Python dirancang untuk membuat game. Modulnya dirancang untuk menjadi sederhana, mudah digunakan, dan menyenangkan. Modul sys adalah modul yang berfungsi untuk mengakses program itu sendiri dan menjalankan file kode python di lingkungan direktori atau sistem itu sendiri.
 
 ## 📖: Cara menjalankan aplikasi (cara bermain)
 - Open File mmenu.py (pastikan telah menginstall pygame pada aplikasi untuk menjalankan program)
