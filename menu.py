@@ -45,12 +45,12 @@ def main_menu():
                     pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_button_clik.wav"), maxtime=2000)
                     pygame.mixer.music.pause()
                     import game-1
-                    game-1.run = True
+                    game_1.run = True
                 if arena2.checkForInput(mouse_pos):
                     pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_button_clik.wav"), maxtime=2000)
                     pygame.mixer.music.pause()
                     import game-2
-                    game-2.run = True
+                    game_2.run = True
                 if petunjuk.checkForInput(mouse_pos):
                     pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_button_clik.wav"), maxtime=2000)
                     func_petunjuk()
