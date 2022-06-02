@@ -5,6 +5,9 @@ import sys
 from tkinter import *
 from tkinter import messagebox
 Tk().wm_withdraw()
+pygame.mixer.pre_init()
+pygame.mixer.init()
+import os
 
 clock = pygame.time.Clock()
 # Window setup
@@ -14,6 +17,11 @@ pygame.display.set_caption("B'Pong")
 # Colors
 white = (255, 255, 255)
 black = (0, 0, 0)
+
+# start playing the background music
+pygame.mixer.music.load(os.path.join(os.getcwd(), 'BackGroundMusic_Game.mp3'))
+pygame.mixer.music.set_volume(0.25)
+pygame.mixer.music.play(loops=-1)
 
 # Sprite Classes
 
@@ -128,17 +136,21 @@ while run :
         pong.rect.x, pong.rect.y = 375, 250
         pong.dx = -1
         player1.points += 1
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_point.ogg"), maxtime=2000)
 
     if pong.rect.x < 1:
         pong.rect.x, pong.rect.y = 375, 250
         pong.dx = 1
         player2.points += 1
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_point.ogg"), maxtime=2000)
 
     if player1.rect.colliderect(pong.rect):
         pong.dx = 1
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_pukul.ogg"), maxtime=2000)
 
     if player2.rect.colliderect(pong.rect):
         pong.dx = -1
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_pukul.ogg"), maxtime=2000)
 
     # Shortcut to End the Game
     if key[pygame.K_o]:     # 'o' stands for over
@@ -147,9 +159,14 @@ while run :
     # Shortcut to End the Game
     if player1.points ==  10:
         run = False
+        pygame.mixer.music.pause()
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_win.ogg"), maxtime=2000)
         messagebox.showinfo('Game Over',"Congratulations!\nPlayer 1 Win!")
+    
     if player2.points == 10:
         run = False
+        pygame.mixer.music.pause()
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sfx_win.ogg"), maxtime=2000)
         messagebox.showinfo('Game Over',"Congratulations!\nPlayer 2 Win!")
     
     # shortcut to make player 1 win
