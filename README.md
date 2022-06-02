@@ -22,8 +22,8 @@ Aturan Permainan:
 
 ## 📖: Cara menjalankan aplikasi (cara bermain)
 
-## 📖: Cara menjalankan aplikasi (cara bermain)
-
+## 📖: UML Diagram
+https://github.com/tomupetra/TubesPBO20222/issues/4#issue-1257781232
 
 ## 📖: Cara menjalankan kontainer
 1. Buat Docker file terlebih dahulu dengan nama Dockerfile. Dockerfile merupakan sebuah file yang mana pada file tersebut berisikan berbagai macam instruksi yang akan dieksekusi untuk membangun sebuah image.
